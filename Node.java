@@ -1,32 +1,65 @@
 public class Node
 {
     private String name;
-    private float lat , lon;
-    private int pop;
-    private Edge edge;
+    private City city;
+    private int index;
+    // redundant attributes
+    // private float lat , lon;
+    // private int pop;
+    // private Edge edge;
 
 
-    public Node(String name , float lat , float lon , int pop)
+    // constructor
+    public Node(String name , City city , int index)
     {
-
+        this.setCity(city);
+        this.setName(city.getName());
     }
 
-    public void setName(String Name)
+    // setters 
+    public void setName(String name)
     {
         this.name = name;
     }
-    public void setLat(float lat)
+    public void setCity (City city)
     {
-        this.lat = lat;
+        this.city = city;
     }
-    public void setLon(float lon)
+    public void setIndex(int index)
     {
-        this.lon = lon;
+        this.index = index;
     }
-    public void setPop(int pop)
+
+    // getters 
+    public String getName()
     {
-        this.pop = pop;   
+        return this.name;
     }
+    public City getCity()
+    {
+        return this.city;
+    }
+    public int getIndex()
+    {
+        return this.index;
+    }
+    // unneeded functions
+    // public void setName(String Name)
+    // {
+    //     this.name = name;
+    // }
+    // public void setLat(float lat)
+    // {
+    //     this.lat = lat;
+    // }
+    // public void setLon(float lon)
+    // {
+    //     this.lon = lon;
+    // }
+    // public void setPop(int pop)
+    // {
+    //     this.pop = pop;   
+    // }
 
 
 }
