@@ -1,23 +1,41 @@
+import java.util.List;
+
 public class Graph {
     
-    private int [][] matrix;
+    private double [][] matrix;
 
     public Graph(int numVert)
     {
-        this.matrix = new int [numVert][numVert];
+        this.matrix = new double [numVert][numVert];
     }
 
-    public void setEdgeWeight(int weight , int vertex1 , int vertex2)
+    public void setEdgeWeight(double weight , int vertex1 , int vertex2)
     {
         matrix[vertex1][vertex2] = weight;
     }
 
-    public int getWeight(int vertex1 , int vertex2)
+    public double getWeight(int vertex1 , int vertex2)
     {
         return matrix[vertex1][vertex2];
     }
-    public int[][] getMatrix()
+    public double[][] getMatrix()
     {
         return this.matrix;
+    }
+
+    public void printGraph(List<City> database)
+    {
+        for(int i = 0 ; i < database.size() ; i++ )
+        {
+            System.out.printf("The distances between %s the other Cities is: \n"
+                         , database.get(i));
+            for (int j = 0 ; j < database.size() ; j++)
+            {
+                if (matrix[i][j] != 0)
+                {
+                    System.out.printf("-%s" , database.get(j));
+                }
+            }
+        }
     }
 }

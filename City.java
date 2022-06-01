@@ -21,7 +21,7 @@ public class City implements Comparable<City>
 
     private static double deg2rad(double deg) {
         return deg * (Math.PI/180);
-       }
+    }
        
 
     // private field that holds info

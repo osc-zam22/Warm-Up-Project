@@ -41,6 +41,9 @@ public class Main {
             Graph citiesDataBase = new Graph(citiesList.size());
 
 
+            constructGraph(citiesDataBase, citiesList.size(), citiesList);
+            citiesDataBase.printGraph(citiesList);
+
 
             // debugging code
             // Iterator iter = citiesList.iterator();
@@ -88,14 +91,14 @@ public class Main {
     }
 
 
-    static public void constructGraph(Graph graph , int verts)
+    static public void constructGraph(Graph graph , int verts , List<City> list)
     {
-        int [][] matrix = graph.getMatrix();
+        double [][] matrix = graph.getMatrix();
         for(int i = 0 ; i < verts ; i++)
         {
             for(int j = 0 ; j < verts ; j++)
             {
-                matrix[][]
+                matrix[i][j] = City.distance(list.get(i), list.get(j));
             }
         }
     }
