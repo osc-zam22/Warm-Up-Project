@@ -16,4 +16,8 @@ public class Graph {
     {
         return matrix[vertex1][vertex2];
     }
+    public int[][] getMatrix()
+    {
+        return this.matrix;
+    }
 }
