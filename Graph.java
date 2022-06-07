@@ -23,6 +23,11 @@ public class Graph {
         return this.matrix;
     }
 
+    public void setEdge( int city, int connection , Double weight)
+    {
+        this.matrix[city][connection] = weight; 
+    }
+
     public void printGraph(List<City> database)
     {
         for(int i = 0 ; i < database.size() ; i++ )

@@ -30,7 +30,6 @@ public class Main {
                 try {
                     temp.setPop(reader.nextInt());
                 } catch (Exception e) {
-                    // TODO Auto-generated catch block
                     System.out.println("not a valid population");
                 }
                 //System.out.println(temp.toString());
@@ -56,7 +55,6 @@ public class Main {
 
 
             } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
                 System.out.println("Error found exiting");
                 System.exit(0);
             }
@@ -93,12 +91,12 @@ public class Main {
 
     static public void constructGraph(Graph graph , int verts , List<City> list)
     {
-        double [][] matrix = graph.getMatrix();
+        // double [][] matrix = graph.getMatrix();
         for(int i = 0 ; i < verts ; i++)
         {
             for(int j = 0 ; j < verts ; j++)
             {
-                matrix[i][j] = City.distance(list.get(i), list.get(j));
+                graph.setEdge(i, j , City.distance(list.get(i), list.get(j)));
             }
         }
     }
