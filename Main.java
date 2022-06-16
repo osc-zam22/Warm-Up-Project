@@ -3,9 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.Stack;
 
 public class Main {
 
@@ -98,6 +101,17 @@ public class Main {
             {
                 graph.setEdge(i, j , City.distance(list.get(i), list.get(j)));
             }
+        }
+    }
+
+    public static void DFS(Graph graph)
+    {
+        Set<City> visited = new HashSet<>();
+        Stack stack = new Stack<>();
+        
+        while(!stack.empty())
+        {
+
         }
     }
 }
