@@ -104,13 +104,22 @@ public class Main {
         }
     }
 
-    public static void DFS(Graph graph)
+    public static void DFS(Graph graph , List<City> database)
     {
         Set<City> visited = new HashSet<>();
-        Stack stack = new Stack<>();
-        
+        Stack<City> stack = new Stack<>();
+        stack.push(database.get(0));
+        int counter = 0
         while(!stack.empty())
         {
+            City curr = stack.pop(); 
+            if(!visited.contains(curr))
+            {
+                for(int i = 0 ; i < database.size() ; i++ )
+                {
+                    
+                }
+            }
 
         }
     }
