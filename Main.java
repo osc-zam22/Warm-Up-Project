@@ -109,7 +109,7 @@ public class Main {
         Set<City> visited = new HashSet<>();
         Stack<City> stack = new Stack<>();
         stack.push(database.get(0));
-        int counter = 0
+        int counter = 0;
         while(!stack.empty())
         {
             City curr = stack.pop(); 
