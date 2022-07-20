@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
@@ -44,7 +46,11 @@ public class Main {
 
 
             constructGraph(citiesDataBase, citiesList.size(), citiesList);
-            citiesDataBase.printGraph(citiesList);
+
+
+            System.out.println("debugging test print\n");
+            printGraph(citiesList , citiesDataBase);
+
 
 
             // debugging code
@@ -109,7 +115,7 @@ public class Main {
         Set<City> visited = new HashSet<>();
         Stack<City> stack = new Stack<>();
         stack.push(database.get(0));
-        int counter = 0;
+        // int counter = 0;
         while(!stack.empty())
         {
             City curr = stack.pop(); 
@@ -123,4 +129,35 @@ public class Main {
 
         }
     }
+
+    public static void printConnection(Graph graph , int curr , int destination , List <City> list)
+    {
+        System.out.printf("%s is %f KM away from %s\n" , list.get(curr).getName() , graph.getWeight(curr, destination)
+                            , list.get(destination).getName());
+    }
+
+
+
+    public static void printGraph(List<City> database , Graph graph)
+    {
+        for(int i = 0 ; i < database.size() ; i++ )
+        {
+            System.out.printf("\n\n***Connections for %s ***\n\n" , database.get(i).getName());
+            for (int j = 0 ; j < database.size() ; j++)
+            {
+                printConnection(graph, i, j, database);
+            }
+        }
+    }
+
+
+    public static void greedySolution(Graph graph , int origin , List<City> list)
+    {
+        // creates necessary data structs
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> path = new LinkedList<Integer>();
+        path.add(origin);
+        while(!path.isEmpty());
+    }
+
 }

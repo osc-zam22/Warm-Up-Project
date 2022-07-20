@@ -31,21 +31,21 @@ public class Graph {
         this.matrix[city][connection] = weight; 
     }
 
-    public void printGraph(List<City> database)
-    {
-        for(int i = 0 ; i < database.size() ; i++ )
-        {
-            System.out.printf("The distances between %s the other Cities is: \n"
-                         , database.get(i));
-            for (int j = 0 ; j < database.size() ; j++)
-            {
-                if (matrix[i][j] != 0)
-                {
-                    System.out.printf("-%s" , database.get(j));
-                }
-            }
-        }
-    }
+    // public void printGraph(List<City> database)
+    // {
+    //     for(int i = 0 ; i < database.size() ; i++ )
+    //     {
+    //         System.out.printf("The distances between %s the other Cities is: \n"
+    //                      , database.get(i));
+    //         for (int j = 0 ; j < database.size() ; j++)
+    //         {
+    //             if (matrix[i][j] != 0)
+    //             {
+    //                 System.out.printf("-%s" , database.get(j));
+    //             }
+    //         }
+    //     }
+    // }
 
 
 }
