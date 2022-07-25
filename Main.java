@@ -1,10 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -19,7 +17,7 @@ public class Main {
     //static Scanner reader = new Scanner("LATowns.txt");
 
     public static void main(String [] args) {
-        File file = new File("LATowns.txt");
+        File file = new File("LATownsShortList.txt");
         Scanner reader;
         try {
             reader = new Scanner(file);
@@ -51,6 +49,11 @@ public class Main {
             System.out.println("debugging test print\n");
             printGraph(citiesList , citiesDataBase);
 
+
+            System.out.println("greedy solution test run");
+            greedySolution(citiesDataBase, 0, citiesList);
+
+            System.out.println("Done");
 
 
             // debugging code
@@ -151,13 +154,62 @@ public class Main {
     }
 
 
-    public static void greedySolution(Graph graph , int origin , List<City> list)
+    // public static void greedySolution(Graph graph , int origin , List<City> list)
+    // {
+    //     // creates necessary data structs
+    //     List<Integer> visited = new ArrayList<>();
+    //     Queue<Integer> path = new LinkedList<Integer>();
+    //     path.add(origin);
+    //     double totalTraveled = 0;
+    //     while(!path.isEmpty())
+    //     {
+    //         System.out.println("inside breadth search");
+    //         int current = path.poll();
+    //         if(!visited.contains(current))
+    //         {
+    //             visited.add(current);
+    //             int currLowest = (int)Float.MAX_VALUE;
+    //             for(int i = 0 ; i < list.size() ; i++)
+    //             {
+    //                 if(graph.getWeight(current, i) != 0)
+    //                 {
+    //                     if (graph.getWeight(current, i) < currLowest && !visited.contains(currLowest))
+    //                     {
+    //                         currLowest = i;
+    //                     }
+    //                 }
+    //             }
+    //             path.add(currLowest);
+    //         }
+    //     }
+    //     System.out.println("The path taken between the cities is:\n");
+    //     for(int i = 0 ; i < visited.size(); i++)
+    //     {
+    //         System.out.printf("%d : %s\n" ,  i , list.get(visited.get(i)).getName());
+    //     }
+    // }
+
+    public static void greedySolution(Graph graph , int origin , List<City> cities)
     {
-        // creates necessary data structs
-        Set<Integer> visited = new HashSet<>();
-        Queue<Integer> path = new LinkedList<Integer>();
+        List<Integer> visited = new ArrayList<>();
+        Queue<Integer> path = new LinkedList<>();
         path.add(origin);
-        while(!path.isEmpty());
+        while(!path.isEmpty())
+        {
+            int currentLocation = path.poll();
+            if(!visited.contains(currentLocation))
+            {
+                visited.add(currentLocation);
+                double low = Float.MAX_VALUE;
+                for(int i = 0 ; i < cities.size() ; i++)
+                {
+                     if (graph.getWeight(currentLocation, i ) < low && graph.getWeight(currentLocation, i) != 0)
+                     {
+                        low = i
+                     }
+                }
+            }
+        }
     }
 
 }
